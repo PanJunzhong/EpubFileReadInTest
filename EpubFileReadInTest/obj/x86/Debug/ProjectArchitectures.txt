@@ -1,0 +1,1 @@
+C:\Users\A1134\OneDrive\Projects\UWP\EpubFileReadInTest\EpubFileReadInTest\EpubFileReadInTest.csproj;x86

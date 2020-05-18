@@ -1,0 +1,112 @@
+﻿<Page
+    x:Class="EpubFileReadInTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EpubFileReadInTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6.18*"/>
+            <RowDefinition Height="3.82*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.RowSpan="2" 
+               Name="BackgroundImage"
+               HorizontalAlignment="Stretch"
+               VerticalAlignment="Stretch"
+               Stretch="UniformToFill"/>
+        <Grid Grid.RowSpan="2" 
+              x:Name="GlassHost" 
+              HorizontalAlignment="Stretch" 
+              VerticalAlignment="Stretch"/>
+        <RelativePanel Margin="40,40,40,20">
+            <Button FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE12F;"
+                    FontSize="24"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    Name="DirButton"
+                    Click="DirButton_Click"
+                    Foreground="#FF008EFF" 
+                    FocusVisualPrimaryBrush="#FF006AC3"
+                    >
+                <Button.Flyout>
+                    <Flyout>
+                        <ListView>
+                        </ListView>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+            <Button RelativePanel.AlignHorizontalCenterWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    Click="CoverButton_Click"
+                    BorderBrush="#FF0078D7"
+                    BorderThickness="2"
+                    Background="Transparent" 
+                    FocusVisualPrimaryBrush="#FF0063A8" 
+                    Foreground="Black"
+                    >
+                <Button.ContextFlyout>
+                    <MenuFlyout x:Name="CoverContextFlyout">
+                        <MenuFlyoutItem x:Name="DeleteButton" Click="DeleteButton_Click" Text="Delete" Icon="Delete"/>
+                        <MenuFlyoutItem Click="CoverButton_Click" Text="Add" Icon="Add"/>
+                    </MenuFlyout>
+                </Button.ContextFlyout>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TextBlock FontFamily="Segoe MDL2 Assets"
+                               FontSize="60"
+                               Margin="20,20,20,20"
+                               Text="&#xE109;" Foreground="#FF0078D7"
+                               />
+                    <Image x:Name="Cover"
+                       Stretch="Uniform"
+                       />
+                </Grid>
+            </Button>
+        </RelativePanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden" VerticalScrollMode="Enabled">
+            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="40,20,40,40">
+                <TextBlock x:Name="TitleTextBlock" 
+                           HorizontalAlignment="Center" 
+                           Text="Title"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           TextWrapping="Wrap" FocusVisualPrimaryBrush="Black" Foreground="#FF0078D7"
+                           />
+                <TextBlock x:Name="AuthorTextBlock"
+                           HorizontalAlignment="Center"
+                           Text="Author"
+                           FontSize="24" Foreground="CornflowerBlue"
+                           />
+                <TextBlock x:Name="PublisherTextBlock"
+                           HorizontalAlignment="Center"
+                           Text="Publisher"
+                           FontSize="18" Foreground="CornflowerBlue"
+                           />
+                <TextBlock x:Name="DateTextBlock"
+                           HorizontalAlignment="Center"
+                           Text="Date"
+                           FontSize="18" Foreground="CornflowerBlue"
+                           />
+                <TextBlock x:Name="LanguageTextBlock"
+                           HorizontalAlignment="Center"
+                           Text="Language"
+                           FontSize="16" Foreground="CornflowerBlue"
+                           />
+                <TextBlock x:Name="ExceptionTextBlock"
+                           HorizontalAlignment="Center"
+                           FontSize="12"/>
+            </StackPanel>
+        </ScrollViewer>
+        <ProgressRing x:Name="ProgressRing"  
+                      Height="150"
+                      Width="150"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Grid.RowSpan="2"/>
+    </Grid>
+
+</Page>
